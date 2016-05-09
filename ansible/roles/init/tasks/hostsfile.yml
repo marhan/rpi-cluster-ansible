@@ -1,8 +1,0 @@
-- name: Set hosts
-  template: src=hosts dest=/etc/hosts
-
-- name: Set hostname
-  hostname: name="{{ host_name }}"
-
-- name: Restart hostname
-  shell: "hostnamectl set-hostname {{ host_name }}"

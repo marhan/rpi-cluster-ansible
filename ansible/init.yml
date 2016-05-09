@@ -1,9 +1,0 @@
-- name: Initial setup for all Raspberry Pi
-
-  hosts: pis
-  remote_user: pi
-  serial: 1
-  become: true
-  become_method: sudo
-  roles:
-    - init

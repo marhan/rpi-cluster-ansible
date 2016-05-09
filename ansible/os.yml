@@ -1,0 +1,8 @@
+- name: Setup OS
+
+  hosts: os
+  remote_user: pi
+  become: true
+  become_method: sudo
+  roles:
+    - os

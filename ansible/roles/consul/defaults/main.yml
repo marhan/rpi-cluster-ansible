@@ -1,0 +1,10 @@
+logs_dir: /data/consul/logs
+
+directories:
+  - /data/consul/data
+  - /data/consul/config
+  - "{{ logs_dir }}"
+
+files: [
+  { src: 'consul', dest: '/usr/local/bin/consul', mode: '0755' }
+]
