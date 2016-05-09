@@ -1,0 +1,7 @@
+# Raspberry pi cluster configuration management
+
+Work in progress!
+
+ansible-playbook -i roles/network/pis network.yml
+
+ansible-playbook -i hosts setup.yml

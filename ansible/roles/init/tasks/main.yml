@@ -1,0 +1,12 @@
+---
+- name: Add and update packages
+  include: apt.yml
+
+- name: Set timezone
+  include: timezone.yml
+
+- name: Setup system configurations
+  include: hostsfile.yml
+
+- name: Setup user
+  include: user.yml

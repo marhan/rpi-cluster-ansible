@@ -1,0 +1,9 @@
+- name: Sets eth0 in network interfaces
+
+  hosts: network
+  remote_user: pi
+  serial: 1
+  become: true
+  become_method: sudo
+  roles:
+    - network
