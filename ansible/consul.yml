@@ -1,4 +1,4 @@
-- name: Setup consul
+- name: Setup Consul
 
   hosts: consul
   remote_user: pi

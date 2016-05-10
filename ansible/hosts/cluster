@@ -1,7 +1,11 @@
 [os]
-192.168.178.201 host_ip="192.168.178.201" host_name="dc1-rpi1"
-192.168.178.203 host_ip="192.168.178.203" host_name="dc1-rpi3"
+192.168.178.201 host_name="dc1-rpi1"
+192.168.178.203 host_name="dc1-rpi3"
 
 [consul]
 192.168.178.201 consul_extra="-server -bootstrap -ui"
 192.168.178.203 consul_server_ip="192.168.178.201"
+
+[docker]
+192.168.178.201
+192.168.178.203

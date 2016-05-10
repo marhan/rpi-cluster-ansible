@@ -1,0 +1,55 @@
+- name: Add Hypriot Repo Key
+  apt_key: url=https://packagecloud.io/gpg.key
+
+- name: Add Hypriot Repo and update cache
+  apt_repository:
+    repo: deb https://packagecloud.io/Hypriot/Schatzkiste/debian/ jessie main
+    update_cache: yes
+    state: present
+  tags: [docker]
+
+- name: Docker Hypriot is present
+  apt:
+    name: docker-hypriot
+    state: latest
+    force: yes
+  tags: [docker]
+
+- name: Python is present
+  apt:
+    name: python
+    state: latest
+    force: yes
+  tags: [docker]
+
+- name: Outdated python-pip is absent
+  apt:
+    name: python-pip
+    state: absent
+  tags: [docker]
+
+- name: Python setuptools are present
+  apt:
+    name: python-setuptools
+    state: latest
+    force: yes
+  tags: [docker]
+
+- name: Latest python-pip is present
+  easy_install:
+    name: pip
+    state: latest
+  tags: [docker]
+
+- name: Debian docker-py is present
+  pip:
+    name: docker-py
+    state: present
+  tags: [docker]
+
+- name: Docker service is started
+  service:
+    name: docker
+    enabled: yes
+    state: running
+  tags: [docker]

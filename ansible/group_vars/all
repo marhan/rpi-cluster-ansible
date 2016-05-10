@@ -1,2 +1,4 @@
 ip: "{{ ansible_default_ipv4.address }}"
 consul_extra: ""
+docker_cfg: docker.cfg
+docker_cfg_dest: /etc/default/docker

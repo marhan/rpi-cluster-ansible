@@ -1,9 +1,9 @@
-- name: Setup eth0 network interface
+- name: Setup Docker
 
-  hosts: network
+  hosts: docker
   remote_user: pi
   serial: 1
   become: true
   become_method: sudo
   roles:
-    - network
+    - docker
