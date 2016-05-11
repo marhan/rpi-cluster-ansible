@@ -8,5 +8,8 @@
 - name: Setup system configurations
   include: hostsfile.yml
 
+- name: Overlay filesystem configuration
+  include: overlay.yml
+
 - name: Setup user
   include: user.yml

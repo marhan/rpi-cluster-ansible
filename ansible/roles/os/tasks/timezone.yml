@@ -6,6 +6,8 @@
     group: root
     mode: 0644
     backup: yes
+  tags: [os]
 
 - name: update timezone
   command: dpkg-reconfigure --frontend noninteractive tzdata
+  tags: [os]

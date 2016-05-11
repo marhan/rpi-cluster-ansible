@@ -47,9 +47,43 @@
     state: present
   tags: [docker]
 
-- name: Docker service is started
+- name: Debian files are present
+  template:
+    src: "{{ docker_cfg }}"
+    dest: /lib/systemd/system/docker.service
+  register: copy_result
+  tags: [docker]
+
+- name: Debian Daemon is reloaded
+  command: systemctl daemon-reload
+  when: copy_result|changed
+  tags: [docker]
+
+- name: Docker service is restarted
   service:
     name: docker
     enabled: yes
-    state: running
+    state: restarted
   tags: [docker]
+
+- name: Swarm node is running
+  docker:
+    name: swarm-node
+    image: hypriot/rpi-swarm
+    command: join --advertise={{ ip }}:2375 consul://{{ ip }}:8500/swarm
+    env:
+      SERVICE_NAME: swarm-node
+  when: not swarm_master is defined
+  tags: [swarm]
+
+- name: Swarm master is running
+  docker:
+    name: swarm-master
+    image: hypriot/rpi-swarm
+    ports: 2375:2375
+    command: manage consul://{{ ip }}:8500/swarm
+    env:
+      SERVICE_NAME: swarm-master
+  when: swarm_master is defined
+  tags: [swarm]
+

@@ -2,17 +2,20 @@
   apt:
     update_cache: yes
     upgrade: safe
+  tags: [os]
 
 - name: Add apt-transport-https
   apt:
     name: 'apt-transport-https'
     state: present
     force: yes
+  tags: [os]
 
 - name: Update APT package cache
   apt:
     update_cache: yes
     upgrade: safe
+  tags: [os]
 
 - name: Install Packages
   apt:
@@ -24,3 +27,4 @@
     - lynx
     - jq
     - unzip
+  tags: [os]

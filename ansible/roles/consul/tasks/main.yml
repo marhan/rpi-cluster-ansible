@@ -11,12 +11,13 @@
     dest: "{{ item.dest }}"
     mode: "{{ item.mode }}"
   with_items: files
+  register: files
   tags: [consul]
 
 - name: Is running
   shell: "nohup consul agent {{ consul_extra }} \
-    -data-dir /data/consul/data \
-    -config-dir /data/consul/config \
+    -data-dir {{ data_dir }} \
+    -config-dir {{ config_dir }} \
     -node={{ ansible_hostname }} \
     -bind={{ ip }} \
     -client=0.0.0.0 \
@@ -26,4 +27,9 @@
 - name: Has joined
   shell: consul join {{ consul_server_ip }}
   when: consul_server_ip is defined
+  tags: [consul]
+
+- name: Consul is restarted
+  shell: killall -HUP consul
+  when: files|changed
   tags: [consul]

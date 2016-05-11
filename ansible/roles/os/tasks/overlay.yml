@@ -1,0 +1,7 @@
+- name: Add overlay filesystem module
+  lineinfile: dest=/etc/modules state=present line="overlay" insertafter="EOF"
+  tags: [os]
+
+- name: Load overlay module
+  modprobe: name=overlay state=present
+  tags: [os]
