@@ -1,3 +1,9 @@
 ssh:
   pub_key_path: "~/.ssh/id_rsa.pub"
+
 timezone: "Europe/Berlin"
+
+hosts: [
+  { host_ip: "192.168.178.201", host_name: "dc1-rpi1"},
+  { host_ip: "192.168.178.203", host_name: "dc1-rpi3"},
+]

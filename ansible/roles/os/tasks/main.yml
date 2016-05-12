@@ -1,15 +1,11 @@
 ---
-- name: Add and update packages
-  include: apt.yml
 
-- name: Set timezone
-  include: timezone.yml
+- include: apt.yml
 
-- name: Setup system configurations
-  include: hostsfile.yml
+- include: timezone.yml
 
-- name: Overlay filesystem configuration
-  include: overlay.yml
+- include: hostsfile.yml
 
-- name: Setup user
-  include: user.yml
+- include: overlay.yml
+
+- include: user.yml

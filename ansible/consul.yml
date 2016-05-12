@@ -1,9 +1,0 @@
-- name: Setup Consul
-
-  hosts: consul
-  remote_user: pi
-  serial: 1
-  become: true
-  become_method: sudo
-  roles:
-    - consul

@@ -1,5 +1,9 @@
-- name: Set hosts
-  template: src=hosts dest=/etc/hosts
+- name: Host is present
+  lineinfile:
+    dest: /etc/hosts
+    regexp: "^{{ item.host_ip }}"
+    line: "{{ item.host_ip }} {{ item.host_name }}"
+  with_items: hosts
   tags: [os]
 
 - name: Set hostname

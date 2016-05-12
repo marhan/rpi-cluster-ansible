@@ -1,7 +1,6 @@
-- name: Update APT package cache
-  apt:
-    update_cache: yes
-    upgrade: safe
+- name: Update apt
+  sudo: true
+  apt: update_cache=yes cache_valid_time=3600
   tags: [os]
 
 - name: Add apt-transport-https

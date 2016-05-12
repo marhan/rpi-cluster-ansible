@@ -1,12 +1,3 @@
 # Raspberry pi cluster configuration management
 
 Work in progress!
-
-
-ansible-playbook -i hosts/network network.yml
-
-ansible-playbook -i hosts/cluster os.yml
-
-ansible-playbook -i hosts/cluster consul.yml
-
-ansible-playbook -i hosts/cluster docker.yml

@@ -1,0 +1,8 @@
+- name: Shutdown
+
+  hosts: nodes
+  remote_user: pi
+  become: true
+  become_method: sudo
+  roles:
+    - shutdown

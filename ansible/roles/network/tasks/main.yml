@@ -1,2 +1,10 @@
 - name: Set network interfaces
   template: src=interfaces dest=/etc/network/interfaces
+  tags: [network]
+
+- name: Reboot systems
+  command: shutdown -r now
+  async: 0
+  poll: 0
+  ignore_errors: true
+  tags: [network]
