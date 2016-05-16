@@ -1,6 +1,6 @@
 - name: Shutdown systems
   command: shutdown now
-  async: 0
+  async: 1
   poll: 0
   ignore_errors: true
   tags: [shutdown]

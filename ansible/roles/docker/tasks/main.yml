@@ -1,3 +1,6 @@
+- name: Add overlay kernel module
+  command: echo "overlay" | sudo tee -a /etc/modules
+
 - name: Set '/etc/os-release'
   copy:
     src: os-release
@@ -14,53 +17,16 @@
     force: yes
   tags: [docker]
 
-- name: Python is present
-  apt:
-    name: python
-    state: latest
-    force: yes
+- name: Add user pi to group docker
+  user: name=pi groups=docker append=yes
+
+- name: Enable Docker daemon
+  command: systemctl enable docker
   tags: [docker]
 
-- name: Outdated python-pip is absent
-  apt:
-    name: python-pip
-    state: absent
-  tags: [docker]
-
-- name: Python setuptools are present
-  apt:
-    name: python-setuptools
-    state: latest
-    force: yes
-  tags: [docker]
-
-- name: Latest python-pip is present
-  easy_install:
-    name: pip
-    state: latest
-  tags: [docker]
-
-- name: Debian docker-py is present
-  pip:
-    name: docker-py
-    state: present
-  tags: [docker]
-
-- name: Debian files are present
-  copy:
-    src: docker.cfg
-    dest: /etc/default/docker
-  register: copy_docker_cfg
-  tags: [docker]
-
-- name: Debian Daemon is reloaded
-  command: systemctl daemon-reload
-  when: copy_docker_cfg|changed
-  tags: [docker]
-
-- name: Docker service is restarted
-  service:
-    name: docker
-    enabled: yes
-    state: restarted
+- name: Reboot systems
+  shell: " sleep 3; shutdown -r now"
+  async: 1
+  poll: 0
+  ignore_errors: true
   tags: [docker]
