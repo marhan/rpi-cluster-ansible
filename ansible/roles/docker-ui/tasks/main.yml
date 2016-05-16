@@ -1,0 +1,10 @@
+- name: DockerUI is running
+  docker:
+    image: hypriot/rpi-dockerui
+    name: dockerui
+    ports: 9000:9000
+    privileged: yes
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  when: not skip_ui is defined
+  tags: [docker-ui]
