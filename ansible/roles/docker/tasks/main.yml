@@ -1,12 +1,11 @@
-- name: Add Hypriot Repo Key
-  apt_key: url=https://packagecloud.io/gpg.key
-
-- name: Add Hypriot Repo and update cache
-  apt_repository:
-    repo: deb https://packagecloud.io/Hypriot/Schatzkiste/debian/ jessie main
-    update_cache: yes
-    state: present
+- name: Set '/etc/os-release'
+  copy:
+    src: os-release
+    dest: /etc/os-release
   tags: [docker]
+
+- name: Add Hypriot Repo via script
+  script: hypriot_packagecloud.sh
 
 - name: Docker Hypriot is present
   apt:
@@ -48,15 +47,15 @@
   tags: [docker]
 
 - name: Debian files are present
-  template:
+  copy:
     src: docker.cfg
     dest: /etc/default/docker
-  register: copy_result
+  register: copy_docker_cfg
   tags: [docker]
 
 - name: Debian Daemon is reloaded
   command: systemctl daemon-reload
-  when: copy_result|changed
+  when: copy_docker_cfg|changed
   tags: [docker]
 
 - name: Docker service is restarted

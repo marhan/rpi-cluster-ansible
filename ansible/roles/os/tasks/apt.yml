@@ -3,20 +3,13 @@
   apt: update_cache=yes cache_valid_time=3600
   tags: [os]
 
-- name: Add apt-transport-https
-  apt:
-    name: 'apt-transport-https'
-    state: present
-    force: yes
-  tags: [os]
-
 - name: Update APT package cache
   apt:
     update_cache: yes
     upgrade: safe
   tags: [os]
 
-- name: Install Packages
+- name: Install dev tools
   apt:
     name: "{{ item }}"
     force: yes
@@ -26,4 +19,6 @@
     - lynx
     - jq
     - unzip
+    - mc
+    - curl
   tags: [os]
