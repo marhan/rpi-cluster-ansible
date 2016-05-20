@@ -4,12 +4,12 @@
     regexp: "^{{ item.host_ip }}"
     line: "{{ item.host_ip }} {{ item.host_name }}"
   with_items: hosts
-  tags: [os]
+  tags: [os,host]
 
 - name: Set hostname
   hostname: name="{{ host_name }}"
-  tags: [os]
+  tags: [os,host]
 
 - name: Restart hostname
   shell: "hostnamectl set-hostname {{ host_name }}"
-  tags: [os]
+  tags: [os,host]

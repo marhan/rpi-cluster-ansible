@@ -1,0 +1,4 @@
+- name: Install oracle JDK
+  script: install_oracle_jdk.sh
+  when: dev_node
+  tags: [os,jdk]

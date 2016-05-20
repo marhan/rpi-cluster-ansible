@@ -1,3 +1,19 @@
 # Raspberry pi cluster configuration management
 
-Work in progress!
+**Work in progress!**
+
+## Setup network interfaces
+
+Go to './ansible-init'.
+
+[source,shell]
+----
+ansible-playbook network.yml --ask-pass
+----
+
+## Setup OS
+
+[source,shell]
+----
+ansible-playbook os.yml --ask-pass
+----

@@ -1,6 +1,6 @@
-- name: Shutdown
+- name: Shutdown all raspberry pi
 
-  hosts: nodes
+  hosts: all
   remote_user: pi
   become: true
   become_method: sudo

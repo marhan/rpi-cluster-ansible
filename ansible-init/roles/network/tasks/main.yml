@@ -3,8 +3,8 @@
   tags: [network]
 
 - name: Reboot systems
-  command: shutdown -r now
-  async: 0
+  shell: " sleep 3; shutdown -r now"
+  async: 1
   poll: 0
   ignore_errors: true
   tags: [network]

@@ -1,6 +1,6 @@
 - name: Setup OS
 
-  hosts: nodes
+  hosts: os
   remote_user: pi
   become: true
   become_method: sudo

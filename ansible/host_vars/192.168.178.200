@@ -1,0 +1,2 @@
+host_name: "dc1-rpi0"
+dev_node: true
