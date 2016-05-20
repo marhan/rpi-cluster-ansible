@@ -8,6 +8,4 @@
 
 - include: hostsfile.yml
 
-- include: overlay.yml
-
 - include: user.yml

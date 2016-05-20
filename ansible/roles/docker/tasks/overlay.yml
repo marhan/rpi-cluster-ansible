@@ -1,7 +1,11 @@
 - name: Add overlay filesystem module
   lineinfile: dest=/etc/modules state=present line="overlay" insertafter="EOF"
-  tags: [os]
+  tags: [docker]
 
 - name: Load overlay module
   modprobe: name=overlay state=present
-  tags: [os]
+  tags: [docker]
+
+- name: Add overlay kernel module
+  command: echo "overlay" | sudo tee -a /etc/modules
+  tags: [docker]

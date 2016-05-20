@@ -1,6 +1,6 @@
 - name: Setup Docker
 
-  hosts: nodes
+  hosts: docker-nodes
   remote_user: pi
   become: true
   become_method: sudo

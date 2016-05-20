@@ -1,32 +1,9 @@
-- name: Add overlay kernel module
-  command: echo "overlay" | sudo tee -a /etc/modules
+---
 
-- name: Set '/etc/os-release'
-  copy:
-    src: os-release
-    dest: /etc/os-release
-  tags: [docker]
+- include: overlay.yml
 
-- name: Add Hypriot Repo via script
-  script: hypriot_packagecloud.sh
+- include: hypriot-docker.yml
 
-- name: Docker Hypriot is present
-  apt:
-    name: docker-hypriot
-    state: latest
-    force: yes
-  tags: [docker]
+- include: docker-py.yml
 
-- name: Add user pi to group docker
-  user: name=pi groups=docker append=yes
-
-- name: Enable Docker daemon
-  command: systemctl enable docker
-  tags: [docker]
-
-- name: Reboot systems
-  shell: " sleep 3; shutdown -r now"
-  async: 1
-  poll: 0
-  ignore_errors: true
-  tags: [docker]
+- include: reboot.yml

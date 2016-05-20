@@ -1,0 +1,22 @@
+- name: Set '/etc/os-release'
+  copy:
+    src: os-release
+    dest: /etc/os-release
+  tags: [docker]
+
+- name: Add Hypriot Repo via script
+  script: hypriot_packagecloud.sh
+
+- name: Docker Hypriot is present
+  apt:
+    name: docker-hypriot
+    state: latest
+    force: yes
+  tags: [docker]
+
+- name: Add user pi to group docker
+  user: name=pi groups=docker append=yes
+
+- name: Enable Docker daemon
+  command: systemctl enable docker
+  tags: [docker]

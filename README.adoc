@@ -1,4 +1,4 @@
-# Raspberry pi cluster configuration management
+http://# Raspberry pi cluster configuration management
 
 **Work in progress!**
 
@@ -13,7 +13,175 @@ ansible-playbook network.yml --ask-pass
 
 ## Setup OS
 
+Go to './ansible'.
+
 [source,shell]
 ----
 ansible-playbook os.yml --ask-pass
 ----
+
+## Roles
+
+### Docker-UI
+
+https://github.com/kevana/ui-for-docker[Link to Docker-UI project]
+
+#### Link to installed instance
+[source,shell]
+----
+http://hostname:9000/
+----
+
+### OS
+
+#### Ubuntu - Debian overview
+
+
+|===
+|Ubuntu number | Ubuntu name | Debian name
+
+|16.04
+|xenial
+|stretch / sid
+
+|15.10
+|wily
+|jessie  / sid
+
+|15.04
+|vivid
+|jessie  / sid
+
+|14.10
+|utopic
+|jessie  / sid
+
+|14.04
+|trusty
+|jessie  / sid
+
+|13.10
+|saucy
+|wheezy  / sid
+
+|13.04
+|raring
+|wheezy  / sid
+
+|12.10
+|quantal
+|wheezy  / sid
+
+|12.04
+|precise
+|wheezy  / sid
+
+|11.10
+|oneiric
+|wheezy  / sid
+
+|11.04
+|natty
+|squeeze / sid
+
+|10.10
+|maverick
+|squeeze / sid
+
+|10.04
+|lucid
+|squeeze / sid
+|===
+
+http://askubuntu.com/questions/445487/which-ubuntu-version-is-equivalent-to-debian-squeeze[Source]
+[# Raspberry pi cluster configuration management
+
+**Work in progress!**
+
+## Setup network interfaces
+
+Go to './ansible-init'.
+
+[source,shell]
+----
+ansible-playbook network.yml --ask-pass
+----
+
+## Setup OS
+
+Go to './ansible'.
+
+[source,shell]
+----
+ansible-playbook os.yml --ask-pass
+----
+
+## Roles
+
+### Docker-UI
+
+
+
+### OS
+
+#### Ubuntu - Debian overview
+
+
+|===
+|Ubuntu number | Ubuntu name | Debian name
+
+|16.04
+|xenial
+|stretch / sid
+
+|15.10
+|wily
+|jessie  / sid
+
+|15.04
+|vivid
+|jessie  / sid
+
+|14.10
+|utopic
+|jessie  / sid
+
+|14.04
+|trusty
+|jessie  / sid
+
+|13.10
+|saucy
+|wheezy  / sid
+
+|13.04
+|raring
+|wheezy  / sid
+
+|12.10
+|quantal
+|wheezy  / sid
+
+|12.04
+|precise
+|wheezy  / sid
+
+|11.10
+|oneiric
+|wheezy  / sid
+
+|11.04
+|natty
+|squeeze / sid
+
+|10.10
+|maverick
+|squeeze / sid
+
+|10.04
+|lucid
+|squeeze / sid
+|===
+
+http://askubuntu.com/questions/445487/which-ubuntu-version-is-equivalent-to-debian-squeeze[Source]
+]
