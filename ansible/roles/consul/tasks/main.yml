@@ -1,0 +1,13 @@
+- name: Consul container is running
+  docker:
+    name: consul
+    image: hypriot/rpi-consul
+    state: running
+    detach: True
+    ports:
+      - 8500:8500
+      - 8301:8301
+      - 8300:8300
+    volumes:
+      - /data
+    command: agent -server -data-dir /data -bootstrap-expect 1 -ui-dir /ui
