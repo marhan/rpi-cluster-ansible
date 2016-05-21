@@ -1,8 +1,8 @@
-- name: Setup OS
+- name: Setup dev nodes
 
-  hosts: os
+  hosts: dev
   remote_user: pi
   become: true
   become_method: sudo
   roles:
-    - os
+    - dev

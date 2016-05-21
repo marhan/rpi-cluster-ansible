@@ -4,8 +4,6 @@
 
 - include: timezone.yml
 
-- include: oracle_jdk.yml
-
 - include: hostsfile.yml
 
 - include: user.yml

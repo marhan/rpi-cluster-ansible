@@ -6,5 +6,4 @@
     privileged: yes
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-  when: not skip_ui is defined
   tags: [docker-ui]

@@ -4,20 +4,16 @@ http://# Raspberry pi cluster configuration management
 
 ## Setup network interfaces
 
-Go to './ansible-init'.
+[source,shell]
+----
+$ ansible-playbook network.yml --ask-pass
+----
+
+## Common Setup
 
 [source,shell]
 ----
-ansible-playbook network.yml --ask-pass
-----
-
-## Setup OS
-
-Go to './ansible'.
-
-[source,shell]
-----
-ansible-playbook os.yml --ask-pass
+$ ansible-playbook common.yml --ask-pass
 ----
 
 ## Roles
@@ -27,6 +23,7 @@ ansible-playbook os.yml --ask-pass
 https://github.com/kevana/ui-for-docker[Link to Docker-UI project]
 
 #### Link to installed instance
+
 [source,shell]
 ----
 http://hostname:9000/
@@ -96,32 +93,6 @@ http://hostname:9000/
 http://askubuntu.com/questions/445487/which-ubuntu-version-is-equivalent-to-debian-squeeze[Source]
 [# Raspberry pi cluster configuration management
 
-**Work in progress!**
-
-## Setup network interfaces
-
-Go to './ansible-init'.
-
-[source,shell]
-----
-ansible-playbook network.yml --ask-pass
-----
-
-## Setup OS
-
-Go to './ansible'.
-
-[source,shell]
-----
-ansible-playbook os.yml --ask-pass
-----
-
-## Roles
-
-### Docker-UI
-
-
-
 ### OS
 
 #### Ubuntu - Debian overview
@@ -185,3 +156,20 @@ ansible-playbook os.yml --ask-pass
 
 http://askubuntu.com/questions/445487/which-ubuntu-version-is-equivalent-to-debian-squeeze[Source]
 ]
+
+### Jenkins
+
+Install dependencies
+
+ansible-galaxy install geerlingguy.jenkins
+
+## Helpful commands
+
+
+### Log into running container
+
+[source,shell]
+----
+docker exec -i -t loving_heisenberg /bin/bash
+----
+

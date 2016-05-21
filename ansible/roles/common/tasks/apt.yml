@@ -1,0 +1,18 @@
+- name: Update APT package cache
+  apt:
+    update_cache: yes
+    upgrade: safe
+  tags: [common]
+
+- name: Install common tools
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - htop
+    - lynx
+    - jq
+    - unzip
+    - mc
+    - curl
+  tags: [common]

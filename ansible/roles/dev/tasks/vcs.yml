@@ -1,0 +1,8 @@
+- name: Install version control systems
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - git
+    - tig
+  tags: [jenkins]

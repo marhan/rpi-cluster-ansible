@@ -1,0 +1,8 @@
+plugins:
+  - git
+  - log-parser
+  - copyartifact
+  - workflow-aggregator
+  - workflow-multibranch
+  - docker-workflow
+  - template-project

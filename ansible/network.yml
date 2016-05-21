@@ -1,6 +1,6 @@
 - name: Setup eth0 network interfaces
 
-  hosts: all
+  hosts: network
   remote_user: pi
   become: true
   become_method: sudo

@@ -1,0 +1,8 @@
+- name: Common setup
+
+  hosts: common
+  remote_user: pi
+  become: true
+  become_method: sudo
+  roles:
+    - common

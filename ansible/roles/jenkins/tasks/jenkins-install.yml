@@ -1,0 +1,28 @@
+- name: Jenkins apt-key is present
+  apt_key:
+    url: http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key
+    state: present
+  tags: [jenkins]
+
+- name: Jenkins repository is present
+  apt_repository:
+    repo: 'deb http://pkg.jenkins-ci.org/debian-stable binary/'
+    state: present
+  tags: [jenkins]
+
+- name: Jenkins is installed
+  apt:
+    name: jenkins
+    state: installed
+  register: jenkins_result
+  tags: [jenkins]
+
+- name: Ensure Jenkins is started and runs on startup.
+  service:
+    name: jenkins
+    state: started
+    enabled: yes
+
+- pause: seconds=60
+  when: jenkins_result|changed
+  tags: [jenkins]
