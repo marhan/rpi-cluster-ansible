@@ -6,3 +6,4 @@
   become_method: sudo
   roles:
     - dev
+    - bash

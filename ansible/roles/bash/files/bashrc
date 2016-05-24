@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+export BASH_IT="/home/pi/.bash_it"
+export BASH_IT_THEME='bobby'
+export GIT_HOSTING='git@github.com'
+unset MAILCHECK
+export SCM_CHECK=true
+
+source $BASH_IT/bash_it.sh

@@ -1,0 +1,11 @@
+- name: Check if bash-it already installed
+  stat: path=/home/pi/.bash_it
+  tags: [bash]
+
+- name: Copy bash-it files
+  copy: src=bash_it/ dest=/home/pi/.bash_it owner=pi group=pi mode=0644 force=yes
+  tags: [bash]
+
+- name: Update .bashrc file
+  copy: src=bashrc dest=/home/pi/.bashrc owner=pi group=pi mode=0644 backup=yes
+  tags: [bash]
