@@ -6,5 +6,6 @@
   become_method: sudo
   roles:
     - dev
+    - maven
     - bash
     - ansible

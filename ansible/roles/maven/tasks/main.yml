@@ -1,0 +1,8 @@
+- name: Update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+  tags: [maven]
+
+- name: Maven package is present
+  apt: name=maven state=latest
+  tags: [maven]
+
