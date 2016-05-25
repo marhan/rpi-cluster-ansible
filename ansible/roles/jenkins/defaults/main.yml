@@ -1,3 +1,12 @@
+jenkins_home: /var/lib/jenkins
+
+jobs: [
+  {
+    name: "sample",
+    src: "jobs/sample-config.xml"
+  }
+]
+
 plugins:
   - git
   - log-parser
