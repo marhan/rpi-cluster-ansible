@@ -1,38 +1,24 @@
-http://# Raspberry pi cluster configuration management
+# Raspberry pi cluster configuration management
 
 **Work in progress!**
 
-## Setup network interfaces
+## Playbooks
+
+## network
 
 [source,shell]
 ----
 $ ansible-playbook network.yml --ask-pass
 ----
 
-## Common Setup
+### Common
 
 [source,shell]
 ----
 $ ansible-playbook common.yml --ask-pass
 ----
 
-## Roles
-
-### Docker-UI
-
-https://github.com/kevana/ui-for-docker[Link to Docker-UI project]
-
-#### Link to installed instance
-
-[source,shell]
-----
-http://hostname:9000/
-----
-
-### OS
-
-#### Ubuntu - Debian overview
-
+#### Ubuntu to Debian comparison
 
 |===
 |Ubuntu number | Ubuntu name | Debian name
@@ -93,83 +79,27 @@ http://hostname:9000/
 http://askubuntu.com/questions/445487/which-ubuntu-version-is-equivalent-to-debian-squeeze[Source]
 [# Raspberry pi cluster configuration management
 
-### OS
+### Docker-UI
 
-#### Ubuntu - Debian overview
+https://github.com/kevana/ui-for-docker[Link to Docker-UI project]
 
+#### Link to installed instance
 
-|===
-|Ubuntu number | Ubuntu name | Debian name
-
-|16.04
-|xenial
-|stretch / sid
-
-|15.10
-|wily
-|jessie  / sid
-
-|15.04
-|vivid
-|jessie  / sid
-
-|14.10
-|utopic
-|jessie  / sid
-
-|14.04
-|trusty
-|jessie  / sid
-
-|13.10
-|saucy
-|wheezy  / sid
-
-|13.04
-|raring
-|wheezy  / sid
-
-|12.10
-|quantal
-|wheezy  / sid
-
-|12.04
-|precise
-|wheezy  / sid
-
-|11.10
-|oneiric
-|wheezy  / sid
-
-|11.04
-|natty
-|squeeze / sid
-
-|10.10
-|maverick
-|squeeze / sid
-
-|10.04
-|lucid
-|squeeze / sid
-|===
-
-http://askubuntu.com/questions/445487/which-ubuntu-version-is-equivalent-to-debian-squeeze[Source]
-]
+[source,shell]
+----
+http://hostname:9000/
+----
 
 ### Jenkins
 
-Install dependencies
 
-ansible-galaxy install geerlingguy.jenkins
 
 ## Helpful commands
-
 
 ### Log into running container
 
 [source,shell]
 ----
-docker exec -i -t loving_heisenberg /bin/bash
+docker exec -i -t CONTAINER_NAME_OR_ID /bin/bash
 ----
 
