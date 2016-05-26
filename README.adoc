@@ -105,3 +105,10 @@ https://github.com/jenkinsci/workflow-aggregator-plugin/tree/master/demo[workflo
 docker exec -i -t CONTAINER_NAME_OR_ID /bin/bash
 ----
 
+### Search for file content
+
+[source,shell]
+----
+grep --color=auto -nsH 'CONTENT' *
+----
+

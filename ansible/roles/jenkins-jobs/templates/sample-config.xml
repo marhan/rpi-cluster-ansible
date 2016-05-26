@@ -5,12 +5,8 @@
     <keepDependencies>false</keepDependencies>
     <properties/>
     <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.2">
-        <script>node {
-            git url: &apos;https://github.com/marhan/jenkins-pipeline-sample.git&apos;
-            def mvnHome = tool &apos;M3&apos;
-            sh &quot;${mvnHome}/bin/mvn -B verify&quot;
-            }</script>
-        <sandbox>true</sandbox>
+        <script>{% include "sample-config.groovy" %}</script>
+        <sandbox>false</sandbox>
     </definition>
     <triggers/>
 </flow-definition>

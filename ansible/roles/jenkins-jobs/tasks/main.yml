@@ -7,7 +7,7 @@
   tags: [jenkins-jobs]
 
 - name: Jobs are present
-  copy:
+  template:
     src: "{{ item.src }}"
     dest: "{{ jenkins_home }}/jobs/{{ item.name }}/config.xml"
     mode: 0777
