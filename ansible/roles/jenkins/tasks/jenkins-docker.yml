@@ -1,0 +1,3 @@
+- name: Add user jenkins to group docker
+  user: name=jenkins groups=docker append=yes
+  tags: [jenkins]

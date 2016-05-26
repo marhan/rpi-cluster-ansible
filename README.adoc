@@ -92,7 +92,9 @@ http://hostname:9000/
 
 ### Jenkins
 
+#### Plugins
 
+https://github.com/jenkinsci/workflow-aggregator-plugin/tree/master/demo[workflow-aggregator]
 
 ## Helpful commands
 

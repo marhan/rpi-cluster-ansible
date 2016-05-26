@@ -4,4 +4,6 @@
 
 - include: jenkins-plugins.yml
 
-- include: jenkins-jobs.yml
+- include: jenkins-configs.yml
+
+- include: jenkins-docker.yml

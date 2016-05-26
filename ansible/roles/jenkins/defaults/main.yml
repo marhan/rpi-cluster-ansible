@@ -1,10 +1,7 @@
 jenkins_home: /var/lib/jenkins
 
-jobs: [
-  {
-    name: "sample",
-    src: "jobs/sample-config.xml"
-  }
+configs: [
+  { src: "hudson.tasks.Maven.xml", dir: "/var/lib/jenkins", file: "hudson.tasks.Maven.xml", mode: "0777" }
 ]
 
 plugins:

@@ -23,6 +23,6 @@
     state: started
     enabled: yes
 
-- pause: seconds=120
+- pause: seconds=180
   when: jenkins_result|changed
   tags: [jenkins]

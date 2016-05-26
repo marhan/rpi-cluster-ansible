@@ -1,0 +1,9 @@
+jenkins_home: /var/lib/jenkins
+
+jobs: [
+  {
+    name: "sample",
+    src: "sample-config.xml"
+  }
+]
+

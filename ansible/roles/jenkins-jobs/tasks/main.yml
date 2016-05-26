@@ -4,7 +4,7 @@
     state: directory
     mode: 0777
   with_items: jobs
-  tags: [jenkins]
+  tags: [jenkins-jobs]
 
 - name: Jobs are present
   copy:
@@ -13,7 +13,7 @@
     mode: 0777
   with_items: jobs
   register: jobs_result
-  tags: [jenkins]
+  tags: [jenkins-jobs]
 
 - name: Jenkins is reloaded
   uri:
@@ -22,4 +22,4 @@
     status_code: 200,302
   when: jobs_result|changed
   ignore_errors: yes
-  tags: [jenkins]
+  tags: [jenkins-jobs]
