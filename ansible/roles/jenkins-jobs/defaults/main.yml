@@ -2,8 +2,12 @@ jenkins_home: /var/lib/jenkins
 
 jobs: [
   {
-    name: "sample",
-    src: "sample-config.xml"
+    name: "sample-maven",
+    src: "sample-maven-config.xml"
+  },
+  {
+    name: "sample-docker",
+    src: "sample-docker-config.xml"
   }
 ]
 

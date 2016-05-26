@@ -1,3 +1,21 @@
-- name: Add user jenkins to group docker
+- name: Jenkins is in docker group
   user: name=jenkins groups=docker append=yes
+  tags: [jenkins]
+
+- name: DOCKER_OPTS set
+  lineinfile:
+    dest: /etc/default/docker
+    regexp: "^DOCKER_OPTS"
+    line: 'DOCKER_OPTS="--storage-driver=overlay -D -H tcp://0.0.0.0:2375"'
+  register: docker_opts_result
+  tags: [jenkins]
+
+- name: Systemctl daemon reloaded
+  command: systemctl daemon-reload
+  when: docker_opts_result|changed
+  tags: [jenkins]
+
+- name: Docker daemon restarted
+  command: systemctl restart docker
+  when: docker_opts_result|changed
   tags: [jenkins]
