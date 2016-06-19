@@ -1,11 +1,18 @@
-- name: Check if bash-it already installed
-  stat: path=/home/pi/.bash_it
+---
+- name: "rsync is present"
+  package: name=rsync state=present
   tags: [bash]
 
-- name: Copy bash-it files
-  copy: src=bash_it/ dest=/home/pi/.bash_it owner=pi group=pi mode=0644 force=yes
+- name: "Copy bash-it files"
+  synchronize:
+    src: bash_it/
+    dest: "/home/{{user_name}}/.bash_it"
+    archive: yes
+    delete: yes
+    recursive: true
+    mode: push
   tags: [bash]
 
-- name: Update .bashrc file
-  copy: src=bashrc dest=/home/pi/.bashrc owner=pi group=pi mode=0644 backup=yes
+- name: "Update .bashrc file"
+  template: src=bashrc dest=/home/{{user_name}}/.bashrc owner={{user_name}} group={{user_name}} mode=0644 backup=yes
   tags: [bash]

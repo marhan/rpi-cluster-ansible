@@ -2,6 +2,10 @@
 
 **Work in progress!**
 
+Used image https://www.raspberrypi.org/downloads/[Rasbian].
+
+Initially the rasbian pi user password is 'raspberry'.
+
 ## Playbooks
 
 ## network
@@ -94,7 +98,13 @@ http://hostname:9000/
 
 #### Plugins
 
-https://github.com/jenkinsci/workflow-aggregator-plugin/tree/master/demo[workflow-aggregator]
+- https://github.com/jenkinsci/workflow-aggregator-plugin/tree/master/demo[workflow-aggregator]
+- https://github.com/jenkinsci/docker-workflow-plugin[docker-workflow-plugin]
+- git
+- log-parser
+- copyartifact
+- workflow-multibranch
+- template-project
 
 ## Helpful commands
 

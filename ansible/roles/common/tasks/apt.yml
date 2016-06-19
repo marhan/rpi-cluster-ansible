@@ -1,7 +1,6 @@
 - name: Update APT package cache
   apt:
     update_cache: yes
-    upgrade: safe
   tags: [common]
 
 - name: Install common tools

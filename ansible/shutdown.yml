@@ -1,6 +1,6 @@
-- name: Shutdown all raspberry pi
+- name: Shutdown all nodes
 
-  hosts: all
+  hosts: docker-nodes
   remote_user: pi
   become: true
   become_method: sudo

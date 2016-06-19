@@ -4,6 +4,8 @@
     name: dockerui
     ports: 9000:9000
     privileged: yes
+    state: running
+    restart_policy: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   tags: [docker-ui]
