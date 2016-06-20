@@ -1,8 +1,19 @@
-- name: Verify ~/.ssh
-  file: path="/home/pi/.ssh" state=directory recurse=no owner=pi group=pi
+- set_fact:
+    my_ssh_key: "{{ lookup('env','HOME') }}/.ssh/id_rsa.pub"
+
+- name: "User {{user_name}} has authorized keys set"
+  authorized_key:
+    user: "{{user_name}}"
+    key:  "{{ lookup('file', my_ssh_key) }}"
   tags: [common]
 
-- name: Copy SSH Key
-  copy: src="{{ ssh.pub_key_path }}" dest=/home/pi/.ssh/authorized_keys mode=0600 owner=pi group=pi
+- name: "User {{user_name}} has  password"
+  user:
+    name: "{{user_name}}"
+    password: "{{user_password}}"
+    shell: /bin/bash
+    state: present
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
   tags: [common]
 

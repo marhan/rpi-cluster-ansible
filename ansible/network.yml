@@ -1,7 +1,7 @@
 - name: Setup eth0 network interfaces
 
   hosts: network
-  remote_user: pi
+  remote_user: pirate
   become: true
   become_method: sudo
   roles:

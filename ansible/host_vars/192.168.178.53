@@ -1,1 +1,2 @@
 eth0_ip: "192.168.178.200"
+leader_node: true

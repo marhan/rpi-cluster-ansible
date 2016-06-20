@@ -1,0 +1,12 @@
+---
+
+- name: "Update apt cache"
+  apt: update_cache=yes cache_valid_time=3600
+  tags: [cluster_lab]
+
+- name: "hypriot-cluster-lab is present in version {{cluster_lab_version}}"
+  apt:
+    name: hypriot-cluster-lab="{{cluster_lab_version}}"
+    state: latest
+    force: yes
+  tags: [cluster_lab]

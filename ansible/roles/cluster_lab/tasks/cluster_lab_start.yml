@@ -1,0 +1,8 @@
+- pause: seconds=45
+  when: leader_node is not defined
+  tags: [cluster_lab]
+
+
+- name: "Start cluster-lab"
+  shell: VERBOSE=true cluster-lab start
+  tags: [custer_lab]

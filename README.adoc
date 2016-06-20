@@ -1,10 +1,23 @@
-# Raspberry pi cluster configuration management
+# Raspberry Pi Cluster-Lab configuration management
 
 **Work in progress!**
 
-Used image https://www.raspberrypi.org/downloads/[Rasbian].
+SD-Cards flashed by
 
-Initially the rasbian pi user password is 'raspberry'.
+----
+$ ./flash --hostname cl-leader https://downloads.hypriot.com/hypriotos-rpi-v0.8.0.img.zip
+-----
+
+Initial user data
+
+username: pirate
+password: hypriot
+
+## Scripts
+
+----
+$ sh scripts/install_python.sh
+----
 
 ## Playbooks
 

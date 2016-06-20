@@ -1,12 +1,12 @@
-ssh:
-  pub_key_path: "~/.ssh/id_rsa.pub"
-
 timezone: "Europe/Berlin"
 
 hosts: [
-  { host_ip: "192.168.178.200", host_name: "dc1-rpi0"},
-  { host_ip: "192.168.178.201", host_name: "dc1-rpi1"},
-  { host_ip: "192.168.178.202", host_name: "dc1-rpi2"},
-  { host_ip: "192.168.178.203", host_name: "dc1-rpi3"},
-  { host_ip: "192.168.178.204", host_name: "dc1-rpi4"}
+  { host_ip: "192.168.178.200", host_name: "cl-rpi0"},
+  { host_ip: "192.168.178.201", host_name: "cl-rpi1"},
+  { host_ip: "192.168.178.202", host_name: "cl-rpi2"},
+  { host_ip: "192.168.178.203", host_name: "cl-rpi3"},
+  { host_ip: "192.168.178.204", host_name: "cl-rpi4"}
 ]
+
+user_name: pirate
+user_password: $1$xvJo4058$EP0Wyco8ibwFAFsVwbpTQ.

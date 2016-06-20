@@ -1,7 +1,7 @@
 - name: Common setup
 
-  hosts: common
-  remote_user: pi
+  hosts: cluster-nodes
+  remote_user: pirate
   become: true
   become_method: sudo
   roles:

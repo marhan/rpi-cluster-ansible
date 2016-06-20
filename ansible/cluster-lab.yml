@@ -1,8 +1,8 @@
 - name: Setup Docker
 
-  hosts: docker-nodes
-  remote_user: pi
+  hosts: cluster-nodes
+  remote_user: pirate
   become: true
   become_method: sudo
   roles:
-    - docker
+    - cluster-lab

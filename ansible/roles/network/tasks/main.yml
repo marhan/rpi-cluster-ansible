@@ -1,8 +1,8 @@
-- name: Set network interfaces
+- name: "Set network interfaces"
   template: src=interfaces dest=/etc/network/interfaces
   tags: [network]
 
-- name: Reboot systems
+- name: "Reboot system"
   shell: " sleep 3; shutdown -r now"
   async: 1
   poll: 0
