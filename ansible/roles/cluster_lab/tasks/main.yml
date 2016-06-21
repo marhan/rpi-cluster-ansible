@@ -3,5 +3,3 @@
 - include: cluster_lab_install.yml
 
 - include: cluster_lab_start.yml
-
-- include: reboot.yml

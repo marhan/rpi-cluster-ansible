@@ -1,8 +1,9 @@
-- pause: seconds=45
-  when: leader_node is not defined
-  tags: [cluster_lab]
+---
 
+- pause: seconds=180
+  when: not cluster_leader
+  tags: [jenkins]
 
 - name: "Start cluster-lab"
-  shell: VERBOSE=true cluster-lab start
+  shell: "sudo cluster-lab start"
   tags: [custer_lab]

@@ -1,0 +1,15 @@
+- name: Shutdown systems
+  shell: " sleep 3; shutdown -r now"
+  async: 1
+  poll: 0
+  ignore_errors: true
+  when: leader_node is not defined
+  tags: [shutdown]
+
+- name: Shutdown systems
+  shell: " sleep 30; shutdown -r now"
+  async: 1
+  poll: 0
+  ignore_errors: true
+  when: leader_node is defined
+  tags: [shutdown]

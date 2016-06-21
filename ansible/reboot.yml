@@ -1,8 +1,8 @@
-- name: Setup Cluster-Lab
+- name: Reboot all nodes
 
   hosts: cluster-nodes
   remote_user: pirate
   become: true
   become_method: sudo
   roles:
-    - cluster_lab
+    - reboot

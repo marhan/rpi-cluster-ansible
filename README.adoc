@@ -4,16 +4,19 @@
 
 SD-Cards flashed by
 
+[source,shell]
 ----
 $ ./flash --hostname cl-leader https://downloads.hypriot.com/hypriotos-rpi-v0.8.0.img.zip
 -----
 
-Initial user data
+Default user data
 
 username: pirate
 password: hypriot
 
 ## Scripts
+
+The cluster-lab image does not have python installed, but it is needed by Ansible.
 
 ----
 $ sh scripts/install_python.sh
@@ -21,7 +24,9 @@ $ sh scripts/install_python.sh
 
 ## Playbooks
 
-## network
+### network
+
+Sets the IP address to a specific one.
 
 [source,shell]
 ----
@@ -30,9 +35,37 @@ $ ansible-playbook network.yml --ask-pass
 
 ### Common
 
+Do some common tasks like installations of tools and system configurations.
+
 [source,shell]
 ----
 $ ansible-playbook common.yml --ask-pass
+----
+
+## Ansible commands
+
+### Stop cluster-lab on all nodes
+
+[source,shell]
+----
+ansible cluster-nodes -b --become-method=sudo --user=pirate -a "cluster-lab stop"
+----
+
+### Troubleshooting
+
+If you got an error like this one:
+
+[source,shell]
+----
+$ docker info
+An error occurred trying to connect: Get https://LEADER:2378/v1.23/info: tls: oversized record received with length 20527
+----
+
+Then unset this variable:
+
+[source,shell]
+----
+unset DOCKER_TLS_VERIFY
 ----
 
 #### Ubuntu to Debian comparison
