@@ -7,6 +7,7 @@
     key:  "{{ lookup('file', my_ssh_key) }}"
   tags: [common]
 
+# has to be the last one, due to password change
 - name: "User {{user_name}} has  password"
   user:
     name: "{{user_name}}"

@@ -1,9 +1,0 @@
-- name: Check if java already installed
-  stat: path=/usr/bin/java
-  register: java_bin
-  tags: [jenkins]
-
-- name: Install oracle JDK
-  script: install_oracle_jdk.sh
-  when: java_bin.stat.exists == False
-  tags: [jenkins]

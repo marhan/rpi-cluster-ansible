@@ -1,8 +1,0 @@
-- name: Configurations are present
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dir }}/{{ item.file }}"
-    mode: "{{ item.mode }}"
-  with_items: configs
-  register: configs_result
-  tags: [jenkins]

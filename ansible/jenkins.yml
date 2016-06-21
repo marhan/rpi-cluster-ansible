@@ -1,9 +1,0 @@
-- name: Setup Jenkins
-
-  hosts: jenkins
-  remote_user: pi
-  become: true
-  become_method: sudo
-  roles:
-    - jenkins
-    - jenkins-jobs

@@ -6,3 +6,6 @@
   become_method: sudo
   roles:
     - common
+    - dev
+    - bash
+    - docker-ui

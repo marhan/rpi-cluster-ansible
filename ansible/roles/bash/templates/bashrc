@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+# {{ ansible_managed }}
 
-export BASH_IT="/home/pi/.bash_it"
+export BASH_IT="/home/{{user_name}}/.bash_it"
 export BASH_IT_THEME='bobby'
 export GIT_HOSTING='git@github.com'
 unset MAILCHECK

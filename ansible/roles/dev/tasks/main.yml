@@ -1,6 +1,4 @@
 ---
 
-- include: oracle_jdk.yml
-
 - include: vcs.yml
 
