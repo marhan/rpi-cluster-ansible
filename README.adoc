@@ -7,7 +7,7 @@ SD-Cards flashed by
 [source,shell]
 ----
 $ ./flash --hostname cl-leader https://downloads.hypriot.com/hypriotos-rpi-v0.8.0.img.zip
------
+----
 
 Default user data
 
