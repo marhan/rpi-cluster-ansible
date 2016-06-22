@@ -1,0 +1,6 @@
+- name: Debian docker-py is present
+  pip:
+    name: docker-py
+    state: present
+  sudo: yes
+  tags: [docker]

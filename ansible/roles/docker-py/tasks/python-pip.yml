@@ -1,0 +1,25 @@
+- name: Python is present
+  apt:
+    name: python
+    state: latest
+    force: yes
+  tags: [docker]
+
+- name: Outdated python-pip is absent
+  apt:
+    name: python-pip
+    state: absent
+  tags: [docker]
+
+- name: Python setuptools are present
+  apt:
+    name: python-setuptools
+    state: latest
+    force: yes
+  tags: [docker]
+
+- name: Latest python-pip is present
+  easy_install:
+    name: pip
+    state: latest
+  tags: [docker]

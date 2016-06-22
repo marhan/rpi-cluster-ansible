@@ -8,4 +8,5 @@
     - common
     - dev
     - bash
+    - docker-py
     - docker-ui
