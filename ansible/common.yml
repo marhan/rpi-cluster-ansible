@@ -1,4 +1,4 @@
-- name: Common setup
+- name: Common
 
   hosts: cluster-nodes
   remote_user: pirate

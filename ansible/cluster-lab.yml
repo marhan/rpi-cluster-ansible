@@ -1,8 +1,8 @@
-- name: Setup Cluster-Lab
+- name: Cluster-Lab
 
   hosts: cluster-nodes
   remote_user: pirate
   become: true
   become_method: sudo
   roles:
-    - cluster_lab
+    - cluster-lab
