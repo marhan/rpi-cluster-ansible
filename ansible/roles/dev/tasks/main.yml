@@ -1,6 +1,16 @@
 ---
 
+- name: Update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+  tags: [dev]
+
 - include: oracle_jdk.yml
 
 - include: vcs.yml
+
+- include: sdkman.yml
+
+- include: sdkman-build-tools.yml
+
+- include: ansible.yml
 

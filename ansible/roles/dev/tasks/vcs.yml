@@ -5,4 +5,4 @@
   with_items:
     - git
     - tig
-  tags: [jenkins]
+  tags: [dev,vcs]

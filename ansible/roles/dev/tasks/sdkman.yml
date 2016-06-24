@@ -1,0 +1,21 @@
+---
+- name: "Check if sdkman is installed"
+  shell: test -d {{sdkman_folder}} && echo "yes" || echo "no"
+  register: is_sdkman_installed
+  tags: [dev,sdkman]
+
+- name: "Install SDKMAN!"
+  when: is_sdkman_installed.stdout == "no"
+  shell: curl -s {{sdkman_script_install_url}} | bash executable=/bin/bash
+  sudo: no
+  tags: [dev,sdkman]
+
+- name: "Ensure presence of bashrc"
+  file: state=touch path={{user_home_path}}/.bashrc
+  sudo: no
+  tags: [dev,sdkman]
+
+- name: "Add sdkman in .bashrc"
+  lineinfile: dest={{user_home_path}}/.bashrc regexp="\/.sdkman/bin\/sdkman\-init\.sh" line='[[ -s "{{sdkman_folder}}/bin/sdkman-init.sh" && ! $(which sdkman-init.sh) ]] && source "{{sdkman_folder}}/bin/sdkman-init.sh"'
+  sudo: no
+  tags: [dev,sdkman]

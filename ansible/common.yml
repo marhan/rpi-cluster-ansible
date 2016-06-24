@@ -1,6 +1,6 @@
 - name: Common setup
 
-  hosts: common
+  hosts: docker-nodes
   remote_user: pi
   become: true
   become_method: sudo

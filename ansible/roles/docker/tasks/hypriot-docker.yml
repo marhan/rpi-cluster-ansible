@@ -1,4 +1,10 @@
-- name: Set '/etc/os-release'
+---
+- name: "Check if docker already installed"
+  stat: path=/usr/bin/docker
+  register: docker_bin
+  tags: [docker]
+
+- name: "Set '/etc/os-release'"
   copy:
     src: os-release
     dest: /etc/os-release
@@ -6,6 +12,8 @@
 
 - name: Add Hypriot Repo via script
   script: hypriot_packagecloud.sh
+  when: docker_bin.stat.exists == False
+  tags: [docker]
 
 - name: Docker Hypriot is present
   apt:

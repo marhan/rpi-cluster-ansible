@@ -1,0 +1,12 @@
+---
+- name: "Installing gradle"
+  # This will read your bash profile file, which would setup sdkman-init.sh.
+  command: bash -lc "sdk install gradle {{gradle_version}}"
+  sudo: no
+  tags: [dev,sdkman]
+
+- name: "Installing maven"
+  # This will read your bash profile file, which would setup sdkman-init.sh.
+  command: bash -lc "sdk install maven {{maven_version}}"
+  sudo: no
+  tags: [dev,sdkman]

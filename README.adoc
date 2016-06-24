@@ -1,28 +1,72 @@
-# Raspberry pi cluster configuration management
+# Raspberry Pi configuration management
 
 **Work in progress!**
 
 Used image https://www.raspberrypi.org/downloads/[Rasbian].
 
-Initially the rasbian pi user password is 'raspberry'.
+SD-Cards flashed by
+
+[source,shell]
+----
+$ curl -L https://downloads.raspberrypi.org/raspbian_lite_latest -o raspbian.zip
+$ ./flash raspbian.zip
+----
+
+Default user data
+
+username: pi
+password: raspberry
 
 ## Playbooks
 
-## network
+## network.yml
 
 [source,shell]
 ----
 $ ansible-playbook network.yml --ask-pass
 ----
 
-### Common
+Last task is rebooting the systems. The RPIs will be accessible by the new IP.
+
+### common.yml
 
 [source,shell]
 ----
 $ ansible-playbook common.yml --ask-pass
 ----
 
-#### Ubuntu to Debian comparison
+### docker.yml
+
+#### Docker-UI
+
+https://github.com/kevana/ui-for-docker[Link to Docker-UI project]
+
+#### Link to installed instance
+
+[source,shell]
+----
+http://hostname:9000/
+----
+
+### jenkins.yml
+
+## Helpful commands
+
+### Log into running container
+
+[source,shell]
+----
+docker exec -i -t CONTAINER_NAME_OR_ID /bin/bash
+----
+
+### Search for file content
+
+[source,shell]
+----
+grep --color=auto -nsH 'CONTENT' *
+----
+
+## Ubuntu to Debian comparison
 
 |===
 |Ubuntu number | Ubuntu name | Debian name
@@ -80,45 +124,6 @@ $ ansible-playbook common.yml --ask-pass
 |squeeze / sid
 |===
 
-http://askubuntu.com/questions/445487/which-ubuntu-version-is-equivalent-to-debian-squeeze[Source]
-[# Raspberry pi cluster configuration management
+http://askubuntu.com/questions/445487/which-ubuntu-version-is-equivalent-to-debian-squeeze[Source of table]
 
-### Docker-UI
-
-https://github.com/kevana/ui-for-docker[Link to Docker-UI project]
-
-#### Link to installed instance
-
-[source,shell]
-----
-http://hostname:9000/
-----
-
-### Jenkins
-
-#### Plugins
-
-- https://github.com/jenkinsci/workflow-aggregator-plugin/tree/master/demo[workflow-aggregator]
-- https://github.com/jenkinsci/docker-workflow-plugin[docker-workflow-plugin]
-- git
-- log-parser
-- copyartifact
-- workflow-multibranch
-- template-project
-
-## Helpful commands
-
-### Log into running container
-
-[source,shell]
-----
-docker exec -i -t CONTAINER_NAME_OR_ID /bin/bash
-----
-
-### Search for file content
-
-[source,shell]
-----
-grep --color=auto -nsH 'CONTENT' *
-----
 

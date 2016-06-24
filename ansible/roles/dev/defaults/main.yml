@@ -1,0 +1,5 @@
+sdkman_script_install_url: http://get.sdkman.io
+gradle_version: 2.13
+maven_version: 3.3.9
+user_home_path: '/home/{{user_name}}'
+sdkman_folder: "{{user_home_path}}/.sdkman"

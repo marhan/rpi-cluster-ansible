@@ -6,3 +6,5 @@
   become_method: sudo
   roles:
     - docker
+    - docker-ui
+    - reboot
