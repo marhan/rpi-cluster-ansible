@@ -2,9 +2,11 @@
 
 **Work in progress!**
 
-Used image https://www.raspberrypi.org/downloads/[Rasbian].
+## Flash SD Cards
 
-SD-Cards flashed by
+Image: https://www.raspberrypi.org/downloads/[Rasbian]
+
+Flash tool: https://github.com/hypriot/flash[Github hypriot/flash]
 
 [source,shell]
 ----
@@ -12,7 +14,7 @@ $ curl -L https://downloads.raspberrypi.org/raspbian_lite_latest -o raspbian.zip
 $ ./flash raspbian.zip
 ----
 
-Default user data
+**Initial login data after boot**
 
 username: pi
 password: raspberry
