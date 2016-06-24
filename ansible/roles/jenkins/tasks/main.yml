@@ -1,0 +1,9 @@
+---
+
+- include: jenkins-install.yml
+
+- include: jenkins-plugins.yml
+
+- include: jenkins-configs.yml
+
+- include: jenkins-docker.yml

@@ -1,0 +1,8 @@
+- name: Jenkins
+  hosts: cluster-leader
+  remote_user: pirate
+  become: true
+  become_method: sudo
+  roles:
+    - oracle-jdk
+    - jenkins

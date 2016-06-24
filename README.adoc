@@ -168,3 +168,9 @@ docker exec -i -t CONTAINER_NAME_OR_ID /bin/bash
 grep --color=auto -nsH 'CONTENT' *
 ----
 
+### Install requirements
+
+[source,shell]
+----
+[sudo] ansible-galaxy install -r requirements.yml
+----
