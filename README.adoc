@@ -1,10 +1,10 @@
-# Raspberry Pi configuration management
+# Raspberry Pi 3 configuration management with Ansible
 
 **Work in progress!**
 
 ## Flash SD Cards
 
-Image: https://www.raspberrypi.org/downloads/[Rasbian]
+Image: https://www.raspberrypi.org/downloads/[Raspbian]
 
 Flash tool: https://github.com/hypriot/flash[Github hypriot/flash]
 

@@ -8,4 +8,9 @@
     restart_policy: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+  register: container_result
+  tags: [docker-ui]
+
+- pause: seconds=30
+  when: container_result|changed
   tags: [docker-ui]
