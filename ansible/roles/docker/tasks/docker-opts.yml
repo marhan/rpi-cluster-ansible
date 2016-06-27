@@ -1,0 +1,17 @@
+- name: "DOCKER_OPTS set"
+  lineinfile:
+    dest: /etc/default/docker
+    regexp: "^DOCKER_OPTS"
+    line: 'DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375"'
+  register: docker_opts_result
+  tags: [jenkins]
+
+- name: "Systemctl daemon reloaded"
+  command: systemctl daemon-reload
+  when: docker_opts_result|changed
+  tags: [jenkins]
+
+- name: "Docker daemon restarted"
+  command: systemctl restart docker
+  when: docker_opts_result|changed
+  tags: [jenkins]

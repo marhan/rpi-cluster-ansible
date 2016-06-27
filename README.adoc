@@ -16,8 +16,7 @@ $ ./flash raspbian.zip
 
 **Initial login data after boot**
 
-username: pi
-password: raspberry
+username: pi, password: raspberry
 
 ## Playbooks
 
@@ -73,6 +72,13 @@ grep --color=auto -nsH 'CONTENT' *
 [source,shell]
 ----
 arp -a -n
+----
+
+### Add user to docker group
+
+[source,shell]
+----
+sudo usermod -aG docker jenkins
 ----
 
 ## Ubuntu to Debian comparison

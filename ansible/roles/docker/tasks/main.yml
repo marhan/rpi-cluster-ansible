@@ -7,3 +7,5 @@
 - include: python-pip.yml
 
 - include: docker-py.yml
+
+- include: docker-opts.yml

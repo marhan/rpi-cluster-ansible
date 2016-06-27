@@ -1,0 +1,8 @@
+- name: Test tasks
+
+  hosts: dev-nodes
+  remote_user: pi
+  become: true
+  become_method: sudo
+  roles:
+    - test
