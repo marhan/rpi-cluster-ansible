@@ -1,7 +1,7 @@
 jenkins_home: /var/lib/jenkins
 
 configs: [
-  { src: "hudson.tasks.Maven.xml", dir: "/var/lib/jenkins", file: "hudson.tasks.Maven.xml", mode: "0777" }
+  { src: "hudson.tasks.Maven.xml", dir: "/var/lib/jenkins", file: "hudson.tasks.Maven.xml", mode: "0777" },
   { src: "credentials.xml", dir: "/var/lib/jenkins", file: "credentials.xml", mode: "0777" }
 ]
 

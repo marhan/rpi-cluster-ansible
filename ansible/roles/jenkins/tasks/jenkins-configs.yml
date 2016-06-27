@@ -1,4 +1,4 @@
-- name: Configurations are present
+- name: "Configurations are present"
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dir }}/{{ item.file }}"

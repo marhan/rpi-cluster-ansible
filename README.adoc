@@ -68,6 +68,13 @@ docker exec -i -t CONTAINER_NAME_OR_ID /bin/bash
 grep --color=auto -nsH 'CONTENT' *
 ----
 
+### Find network addresses in the neighborhood
+
+[source,shell]
+----
+arp -a -n
+----
+
 ## Ubuntu to Debian comparison
 
 |===

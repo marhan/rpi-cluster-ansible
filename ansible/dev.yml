@@ -1,6 +1,6 @@
 - name: Setup dev nodes
 
-  hosts: dev
+  hosts: dev-nodes
   remote_user: pi
   become: true
   become_method: sudo

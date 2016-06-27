@@ -1,4 +1,4 @@
-- name: Plugins are installed
+- name: "Plugins are installed"
   shell: "curl -X POST \
     -d '<jenkins><install plugin=\"{{ item }}@latest\" /></jenkins>' \
     --header 'Content-Type: text/xml' \
@@ -9,12 +9,14 @@
   register: plugins_result
   tags: [jenkins]
 
-- wait_for:
+- name: "Wait for plugins installation completed"
+  wait_for:
     path: /var/lib/jenkins/plugins/{{ item }}
   with_items: plugins
+  timeout: 600
   tags: [jenkins]
 
-- name: Jenkins is reloaded
+- name: "Jenkins is reloaded"
   uri:
     url: http://{{ ip }}:8080/restart
     method: POST
@@ -23,6 +25,7 @@
   ignore_errors: yes
   tags: [jenkins]
 
-- pause: seconds=120
+- name: "Pause 120 seconds for jenkins relload complete"
+  pause: seconds=120
   when: plugins_result|changed
   tags: [jenkins]
