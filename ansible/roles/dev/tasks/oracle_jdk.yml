@@ -2,27 +2,27 @@
 - name: Check if java already installed
   stat: path=/usr/bin/java
   register: java_bin
-  tags: [dev,oracle-jdk]
+  tags: [oracle-jdk]
 
 - name: "Add deb to source.list"
   apt_repository: repo='deb http://ppa.launchpad.net/webupd8team/java/ubuntu wily main' state=present
   when: java_bin.stat.exists == False
-  tags: [dev,oracle-jdk]
+  tags: [oracle-jdk]
 
 - name: "Add deb-src to source.list"
   apt_repository: repo='deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu wily main' state=present
   when: java_bin.stat.exists == False
-  tags: [dev,oracle-jdk]
+  tags: [oracle-jdk]
 
 - name: "Add keys"
   apt_key: keyserver=keyserver.ubuntu.com id=EEA14886
   when: java_bin.stat.exists == False
-  tags: [dev,oracle-jdk]
+  tags: [oracle-jdk]
 
 - name: "Licence accepted"
   shell: "echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections"
   when: java_bin.stat.exists == False
-  tags: [dev,oracle-jdk]
+  tags: [oracle-jdk]
 
 - name: "JDK 8 Present"
   apt:
@@ -30,4 +30,4 @@
     state: present
     update_cache: yes
   when: java_bin.stat.exists == False
-  tags: [dev,oracle-jdk]
+  tags: [oracle-jdk]
